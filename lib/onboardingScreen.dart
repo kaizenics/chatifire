@@ -1,3 +1,6 @@
+import 'package:chatifire/introScreens/introPage1.dart';
+import 'package:chatifire/introScreens/introPage2.dart';
+import 'package:chatifire/introScreens/introPage3.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -25,18 +28,15 @@ class _OnBoardingScreenState extends State<OnboardingScreen> {
           PageView(
             controller: _controller,
             children: [
-              Container(
-                color: Colors.blueGrey.shade600,
-              ),
-              Container(
-                color: Colors.blueGrey.shade600,
-              ),
-              Container(
-                color: Colors.blueGrey.shade600,
-              ),
+              IntroPage1(),
+              IntroPage2(),
+              IntroPage3(),
             ],
           ),
-          SmoothPageIndicator(controller: _controller, count: 3),
+          Container(
+            alignment: Alignment(0, 0.8),
+            child: SmoothPageIndicator(controller: _controller, count: 3),
+          ),
         ],
       ),
     );
