@@ -20,6 +20,10 @@ class _OnBoardingScreenState extends State<OnboardingScreen> {
     _controller = PageController();
   }
 
+  // page tracker
+
+  bool onLastPage = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,6 +31,15 @@ class _OnBoardingScreenState extends State<OnboardingScreen> {
         children: [
           PageView(
             controller: _controller,
+            onPageChanged: (index) {
+              setState(() {
+                if (index == 2) {
+                  onLastPage = true;
+                } else {
+                  onLastPage = false;
+                }
+              });
+            },
             children: [
               IntroPage1(),
               IntroPage2(),
@@ -38,28 +51,38 @@ class _OnBoardingScreenState extends State<OnboardingScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
+                // buttons
                 GestureDetector(
                   onTap: () {
-                    _controller.nextPage(
-                      duration: Duration(milliseconds: 500),
-                      curve: Curves.easeIn,
-                    );
+                    _controller.jumpToPage(2);
                   },
                   child: Text('Skip'),
                 ),
+                // dot indicator
                 SmoothPageIndicator(controller: _controller, count: 3),
-                GestureDetector(
-                  onTap: () {
-                    _controller.nextPage(
-                      duration: Duration(milliseconds: 500),
-                      curve: Curves.easeIn,
-                    );
-                  },
-                  child: Text('Next'),
-                ),
+
+                onLastPage
+                    ? GestureDetector(
+                        onTap: () {
+                          _controller.nextPage(
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.easeIn,
+                          );
+                        },
+                        child: Text('Done'),
+                      )
+                    : GestureDetector(
+                        onTap: () {
+                          _controller.nextPage(
+                            duration: Duration(milliseconds: 500),
+                            curve: Curves.easeIn,
+                          );
+                        },
+                        child: Text('Next'),
+                      )
               ],
             ),
-          ),
+          )
         ],
       ),
     );
