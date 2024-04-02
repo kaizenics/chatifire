@@ -35,7 +35,30 @@ class _OnBoardingScreenState extends State<OnboardingScreen> {
           ),
           Container(
             alignment: Alignment(0, 0.8),
-            child: SmoothPageIndicator(controller: _controller, count: 3),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    _controller.nextPage(
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeIn,
+                    );
+                  },
+                  child: Text('Skip'),
+                ),
+                SmoothPageIndicator(controller: _controller, count: 3),
+                GestureDetector(
+                  onTap: () {
+                    _controller.nextPage(
+                      duration: Duration(milliseconds: 500),
+                      curve: Curves.easeIn,
+                    );
+                  },
+                  child: Text('Next'),
+                ),
+              ],
+            ),
           ),
         ],
       ),

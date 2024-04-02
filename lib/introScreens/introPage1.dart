@@ -7,6 +7,7 @@ class IntroPage1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.blueGrey.shade600,
+      child: Center(child: Text('First Page of Intro Screens')),
     );
   }
 }

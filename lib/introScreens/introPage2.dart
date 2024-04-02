@@ -7,6 +7,7 @@ class IntroPage2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.blueGrey.shade600,
+      child: Center(child: Text('Second Page of Intro Screens')),
     );
   }
 }
