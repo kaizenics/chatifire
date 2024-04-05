@@ -5,9 +5,9 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color.fromARGB(255, 255, 255, 255),
-      child: Center(child: Text('Home Page')),
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 180, 180, 180),
+      body: Center(child: Text('Home Page')),
     );
   }
 }
