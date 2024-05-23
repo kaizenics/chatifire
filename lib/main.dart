@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
             ColorScheme.fromSeed(seedColor: Colors.lightGreen.shade400),
         useMaterial3: true,
       ),
-      home: OnboardingScreen(),
+      home: const OnboardingScreen(),
     );
   }
 }
